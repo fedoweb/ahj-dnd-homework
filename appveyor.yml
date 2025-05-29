@@ -8,9 +8,12 @@ environment:
 install:
   - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
   - export NVM_DIR="$HOME/.nvm"
-  - yarn add $nodejs_version
-  - yarn add
-  - yarn add webpack webpack-cli gh-pages --save-dev
+  - nvm install $nodejs_version
+  - nvm use $nodejs_version
+  
+  # Установка Yarn и зависимостей
+  - npm install -g yarn
+  - yarn install
 
 build_script:
   - yarn run build
@@ -20,4 +23,5 @@ on_success:
   - git config --global user.email "appveyor@example.com"
   - git config --global user.name "Appveyor CI"
   - git remote set-url origin https://$GITHUB_TOKEN@github.com/fedoweb/ahj-dnd-homework.git
-  - npx gh-pages -d dist -r https://$GITHUB_TOKEN@github.com/fedoweb/ahj-dnd-homework.git
+ # - npx gh-pages -d dist -r https://$GITHUB_TOKEN@github.com/fedoweb/ahj-dnd-homework.git
+  - yarn deploy
