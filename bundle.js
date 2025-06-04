@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/css/style.css":
@@ -7,7 +8,6 @@
   \*****************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -21,7 +21,138 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: rgb(21, 80, 117);
+  background-color: rgb(60, 119, 155);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.column_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 3px;
+}
+
+.cards_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card_item {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: rgb(80, 107, 124);
+  padding: 5px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);
+  cursor: grab;
+}
+
+.card_item.dragged {
+  position: absolute;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.card-placeholder {
+  height: 60px; /* или динамически под размер карточки */
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  margin: 5px 0;
+  transition: height 0.2s;
+}
+
+.btn {
+  margin-top: 10px;
+  color: rgb(21, 80, 117);
+  background: none;
+  border: none;
+}
+.btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.add_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: rgb(80, 107, 124);
+  padding: 5px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);
+}
+
+.card_input {
+  border: 2px solid rgb(60, 119, 155);
+  border-radius: 2px;
+  color: rgb(21, 80, 117);
+}
+
+.card_input::placeholder {
+  padding: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: rgb(202, 201, 201);
+}
+
+.add_card_button {
+  padding: 5px;
+  background-color: rgb(108, 209, 135);
+  border-radius: 2px;
+  border: none;
+}
+
+.close_form_button {
+  padding: 5px;
+  background-color: rgb(209, 108, 108);
+  border-radius: 2px;
+  border: none;
+}
+
+.add_button {
+  margin-top: auto;
+  margin-right: auto;
+}
+
+.delete_card_button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  padding: 0 3px;
+  border: 2px solid rgb(60, 119, 155);
+  border-radius: 5px;
+  color: rgb(21, 80, 117);
+  background-color: white;
+  cursor: pointer;
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,YAAY;EACZ,oBAAoB;AACtB;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  position: absolute;\n  z-index: 999;\n  pointer-events: none;\n}\n\n.card-placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34,7 +165,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names
   \*****************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -129,7 +259,6 @@ module.exports = function (cssWithMappingToString) {
   \************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (item) {
@@ -155,7 +284,6 @@ module.exports = function (item) {
   \****************************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -249,7 +377,6 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -293,7 +420,6 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -313,7 +439,6 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -333,7 +458,6 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -404,7 +528,6 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -428,7 +551,6 @@ module.exports = styleTagTransform;
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -475,13 +597,231 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/js/AddForm.js":
+/*!***************************!*\
+  !*** ./src/js/AddForm.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AddForm: () => (/* binding */ AddForm)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var AddForm = /*#__PURE__*/function () {
+  function AddForm() {
+    _classCallCheck(this, AddForm);
+  }
+  return _createClass(AddForm, [{
+    key: "addCardForm",
+    value: function addCardForm(element) {
+      var form = document.querySelector('.add_form');
+      if (form) form.remove();
+      var addedForm = this.getAddForm();
+      element.insertAdjacentHTML('beforebegin', addedForm);
+    }
+  }, {
+    key: "closeCardForm",
+    value: function closeCardForm(element) {
+      var closeElement = element.closest('.add_form');
+      closeElement.remove();
+    }
+  }, {
+    key: "getAddForm",
+    value: function getAddForm() {
+      return "\n      <form class=\"add_form\">\n        <input class=\"card_input\" type=\"text\" placeholder=\"write something...\" required>\n        <div class=\"add_form_buttons\">\n          <button type=\"submit\" class=\"add_card_button\">Add Card</button>\n          <button type=\"button\" class=\"close_form_button\">Close</button>\n        </div>\n      </form>\n    ";
+    }
+  }]);
+}();
+
+/***/ }),
+
+/***/ "./src/js/Board.js":
+/*!*************************!*\
+  !*** ./src/js/Board.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Board: () => (/* binding */ Board)
+/* harmony export */ });
+/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card */ "./src/js/Card.js");
+/* harmony import */ var _AddForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddForm */ "./src/js/AddForm.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+var Board = /*#__PURE__*/function () {
+  function Board() {
+    var _this = this;
+    _classCallCheck(this, Board);
+    _defineProperty(this, "onClick", function (e) {
+      //e.preventDefault();
+
+      var addButton = e.target.classList.contains('add_button');
+      var closeFormButton = e.target.classList.contains('close_form_button');
+      var addCardButton = e.target.classList.contains('add_card_button');
+      var deleteCardButton = e.target.classList.contains('delete_card_button');
+      if (addButton) _this.addForm.addCardForm(e.target);
+      if (closeFormButton) _this.addForm.closeCardForm(e.target);
+      if (addCardButton) {
+        var input = document.querySelector('.card_input');
+        if (!input.value.trim()) {
+          input.focus();
+          return;
+        }
+        ;
+        _this.card.addCard(e.target, _this.data);
+        _this.addForm.closeCardForm(e.target);
+      }
+      ;
+      if (deleteCardButton) {
+        var card = e.target.closest('.card_item');
+        card.remove();
+      }
+      ;
+    });
+    _defineProperty(this, "onInput", function (e) {
+      _this.data = e.target.value;
+    });
+    _defineProperty(this, "onMouseover", function (e) {
+      var cardItem = e.target.closest('.card_item');
+      if (cardItem) {
+        var button = _this.card.getCloseButton();
+        if (!cardItem.querySelector('.delete_card_button')) {
+          cardItem.insertAdjacentHTML('beforeend', button);
+        }
+      }
+      if (_this.dndCard) {
+        _this.dndCard.style.top = e.clientY + 'px';
+        _this.dndCard.style.left = e.clientX + 'px';
+      }
+    });
+    _defineProperty(this, "onMouseout", function (e) {
+      var cardItem = e.target.closest('.card_item');
+      if (cardItem && !cardItem.contains(e.relatedTarget)) {
+        var button = cardItem.querySelector('.delete_card_button');
+        if (button) {
+          button.remove();
+        }
+      }
+    });
+    _defineProperty(this, "onMouseup", function (e) {
+      var columnContainer = e.target.closest('.column_container');
+      var cardContainer = columnContainer.querySelector('.cards_container');
+      var mouseUpCard = e.target.closest('.card_item');
+      if (!mouseUpCard) {
+        cardContainer.append(_this.dndCard);
+      } else {
+        cardContainer.insertBefore(_this.dndCard, mouseUpCard);
+      }
+      ;
+      if (!_this.dndCard) return;
+      _this.dndCard.classList.remove('dragged');
+      _this.dndCard = null;
+      document.body.style.cursor = '';
+      document.documentElement.removeEventListener('mouseup', _this.onMouseup);
+    });
+    _defineProperty(this, "onMousedown", function (e) {
+      if (!e.target.closest('.card_item')) return;
+      if (e.target.classList.contains('delete_card_button')) return;
+      e.preventDefault();
+      _this.dndCard = e.target.closest('.card_item');
+      _this.dndCard.classList.add('dragged');
+      document.body.style.cursor = 'grabbing';
+      document.documentElement.addEventListener('mouseup', _this.onMouseup);
+    });
+    this.container = document.querySelector('.container');
+    this.card = new _Card__WEBPACK_IMPORTED_MODULE_0__.Card();
+    this.addForm = new _AddForm__WEBPACK_IMPORTED_MODULE_1__.AddForm();
+    this.data;
+    this.dndCard = null;
+    this.mouseUpCard = null;
+  }
+  return _createClass(Board, [{
+    key: "init",
+    value: function init() {
+      this.container.addEventListener('click', this.onClick);
+      this.container.addEventListener('change', this.onInput);
+      document.documentElement.addEventListener('mouseover', this.onMouseover);
+      document.documentElement.addEventListener('mouseout', this.onMouseout);
+      this.container.addEventListener('mousedown', this.onMousedown);
+      //this.container.addEventListener('mouseup', this.onMouseup);
+    }
+  }]);
+}();
+
+/***/ }),
+
+/***/ "./src/js/Card.js":
+/*!************************!*\
+  !*** ./src/js/Card.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Card: () => (/* binding */ Card)
+/* harmony export */ });
+/* harmony import */ var _AddForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddForm */ "./src/js/AddForm.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+var Card = /*#__PURE__*/function () {
+  function Card() {
+    _classCallCheck(this, Card);
+  }
+  return _createClass(Card, [{
+    key: "addCard",
+    value: function addCard(element, data) {
+      var container = element.closest('.column_container');
+      var cardContainer = container.querySelector('.cards_container');
+      var card = this.getCard(data);
+      cardContainer.insertAdjacentHTML('beforeend', card);
+    }
+  }, {
+    key: "getCard",
+    value: function getCard(data) {
+      return "\n    <div class=\"card_item\">\n      <div class=\"card_content\">".concat(data, "</div>\n      <div class=\"card_status\"></div>\n    </div>\n    ");
+    }
+  }, {
+    key: "getCloseButton",
+    value: function getCloseButton() {
+      return "\n    <button type=\"button\" class=\"delete_card_button\">&#215;</button>\n    ";
+    }
+  }]);
+}();
+
+/***/ }),
+
 /***/ "./src/js/app.js":
 /*!***********************!*\
   !*** ./src/js/app.js ***!
   \***********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board */ "./src/js/Board.js");
 
+document.addEventListener('DOMContentLoaded', function () {
+  var board = new _Board__WEBPACK_IMPORTED_MODULE_0__.Board();
+  board.init();
+});
 
 /***/ })
 
@@ -559,16 +899,14 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.css */ "./src/css/style.css");
 /* harmony import */ var _js_app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/app.js */ "./src/js/app.js");
-/* harmony import */ var _js_app_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_app_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 })();
