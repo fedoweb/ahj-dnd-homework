@@ -55,12 +55,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 .cards_container {
+
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .card_item {
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   color: rgb(80, 107, 124);
@@ -74,7 +76,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 .card_item.dragged {
   position: absolute;
   z-index: 999;
+  box-sizing: border-box;
   pointer-events: none;
+  opacity: 0.5;
 }
 
 .card-placeholder {
@@ -152,7 +156,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   color: rgb(21, 80, 117);
   background-color: white;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,YAAY;EACZ,oBAAoB;AACtB;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  position: absolute;\n  z-index: 999;\n  pointer-events: none;\n}\n\n.card-placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;;EAEE,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;AACd;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  position: absolute;\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.card-placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -653,6 +657,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card */ "./src/js/Card.js");
 /* harmony import */ var _AddForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddForm */ "./src/js/AddForm.js");
+/* harmony import */ var _Placeholder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Placeholder */ "./src/js/Placeholder.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
@@ -660,6 +665,7 @@ function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), 
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 var Board = /*#__PURE__*/function () {
@@ -698,14 +704,24 @@ var Board = /*#__PURE__*/function () {
     _defineProperty(this, "onMouseover", function (e) {
       var cardItem = e.target.closest('.card_item');
       if (cardItem) {
+        //cardItem.style.position = 'relative';
+        //const button = cardItem.querySelector('.delete_card_button');
         var button = _this.card.getCloseButton();
         if (!cardItem.querySelector('.delete_card_button')) {
           cardItem.insertAdjacentHTML('beforeend', button);
+          //button.style.display = 'inline-block';
         }
       }
       if (_this.dndCard) {
-        _this.dndCard.style.top = e.clientY + 'px';
-        _this.dndCard.style.left = e.clientX + 'px';
+        _this.dndCard.style.width = "".concat(_this.originalWidth, "px");
+        //this.dndCard.style.height = `${this.originalHeight}px`;
+        _this.dndCard.style.left = "".concat(e.clientX - _this.dragOffset.x, "px");
+        _this.dndCard.style.top = "".concat(e.clientY - _this.dragOffset.y, "px");
+
+        //fantom element
+        var column = _this.dndCard.closest('.cards_container');
+        var nextCard = _this.dndCard.nextSibling;
+        _this.placeholder.show(column, _this.originalHeight, nextCard);
       }
     });
     _defineProperty(this, "onMouseout", function (e) {
@@ -719,8 +735,11 @@ var Board = /*#__PURE__*/function () {
     });
     _defineProperty(this, "onMouseup", function (e) {
       var columnContainer = e.target.closest('.column_container');
+      //if(!columnContainer) return;
+
       var cardContainer = columnContainer.querySelector('.cards_container');
       var mouseUpCard = e.target.closest('.card_item');
+      if (!cardContainer) return;
       if (!mouseUpCard) {
         cardContainer.append(_this.dndCard);
       } else {
@@ -729,8 +748,11 @@ var Board = /*#__PURE__*/function () {
       ;
       if (!_this.dndCard) return;
       _this.dndCard.classList.remove('dragged');
-      _this.dndCard = null;
+      _this.dndCard.style.width = '';
+      //this.dndCard.style.height = '';
       document.body.style.cursor = '';
+      _this.dndCard = null;
+      _this.placeholder.remove();
       document.documentElement.removeEventListener('mouseup', _this.onMouseup);
     });
     _defineProperty(this, "onMousedown", function (e) {
@@ -738,6 +760,18 @@ var Board = /*#__PURE__*/function () {
       if (e.target.classList.contains('delete_card_button')) return;
       e.preventDefault();
       _this.dndCard = e.target.closest('.card_item');
+
+      // Сохраняем оригинальные размеры (чтобы placeholder был такого же размера)
+      _this.originalWidth = _this.dndCard.offsetWidth;
+      _this.originalHeight = _this.dndCard.offsetHeight;
+      var cardRect = _this.dndCard.getBoundingClientRect();
+      _this.dragOffset = {
+        x: e.clientX - cardRect.left,
+        y: e.clientY - cardRect.top
+      };
+
+      // фиксировать минимальную высоту контейнера
+
       _this.dndCard.classList.add('dragged');
       document.body.style.cursor = 'grabbing';
       document.documentElement.addEventListener('mouseup', _this.onMouseup);
@@ -745,9 +779,16 @@ var Board = /*#__PURE__*/function () {
     this.container = document.querySelector('.container');
     this.card = new _Card__WEBPACK_IMPORTED_MODULE_0__.Card();
     this.addForm = new _AddForm__WEBPACK_IMPORTED_MODULE_1__.AddForm();
+    this.placeholder = new _Placeholder__WEBPACK_IMPORTED_MODULE_2__.Placeholder();
     this.data;
     this.dndCard = null;
     this.mouseUpCard = null;
+    this.dragOffset = {
+      x: 0,
+      y: 0
+    };
+    this.originalWidth;
+    this.originalHeight;
   }
   return _createClass(Board, [{
     key: "init",
@@ -797,12 +838,77 @@ var Card = /*#__PURE__*/function () {
   }, {
     key: "getCard",
     value: function getCard(data) {
-      return "\n    <div class=\"card_item\">\n      <div class=\"card_content\">".concat(data, "</div>\n      <div class=\"card_status\"></div>\n    </div>\n    ");
+      return "\n    <div class=\"card_item\">\n\n      <div class=\"card_content\">".concat(data, "</div>\n      <div class=\"card_status\"></div>\n    </div>\n    ");
     }
   }, {
     key: "getCloseButton",
     value: function getCloseButton() {
       return "\n    <button type=\"button\" class=\"delete_card_button\">&#215;</button>\n    ";
+    }
+  }]);
+}();
+
+/***/ }),
+
+/***/ "./src/js/Placeholder.js":
+/*!*******************************!*\
+  !*** ./src/js/Placeholder.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Placeholder: () => (/* binding */ Placeholder)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var Placeholder = /*#__PURE__*/function () {
+  function Placeholder() {
+    _classCallCheck(this, Placeholder);
+    this.element = this.createPlaceholder();
+    this.isInDOM = false;
+  }
+  return _createClass(Placeholder, [{
+    key: "createPlaceholder",
+    value: function createPlaceholder() {
+      var el = document.createElement('div');
+      el.className = 'card-placeholder';
+      el.style.display = 'none';
+      return el;
+    }
+  }, {
+    key: "show",
+    value: function show(parent, height) {
+      var beforeNode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      this.element.style.height = "".concat(height, "px");
+      if (!this.isInDOM) {
+        if (beforeNode) {
+          parent.insertBefore(this.element, beforeNode);
+        } else {
+          parent.appendChild(this.element);
+        }
+        this.isInDOM = true;
+      }
+      this.element.style.display = 'block';
+    }
+  }, {
+    key: "hide",
+    value: function hide() {
+      if (this.isInDOM) {
+        this.element.style.display = 'none';
+      }
+    }
+  }, {
+    key: "remove",
+    value: function remove() {
+      if (this.isInDOM && this.element.parentNode) {
+        this.element.parentNode.removeChild(this.element);
+        this.isInDOM = false;
+      }
     }
   }]);
 }();
