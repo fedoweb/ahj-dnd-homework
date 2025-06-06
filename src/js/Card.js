@@ -16,6 +16,7 @@ export class Card {
   getCard(data) {
     return `
     <div class="card_item">
+
       <div class="card_content">${data}</div>
       <div class="card_status"></div>
     </div>

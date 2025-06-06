@@ -1,14 +1,20 @@
 import { Card } from "./Card";
 import { AddForm } from "./AddForm";
+import { Placeholder } from "./Placeholder";
 
 export class Board {
   constructor() {
     this.container = document.querySelector('.container');
     this.card = new Card();
     this.addForm = new AddForm();
+    this.placeholder = new Placeholder();
     this.data;
     this.dndCard = null;
     this.mouseUpCard = null;
+
+    this.dragOffset = { x: 0, y: 0 };
+    this.originalWidth;
+    this.originalHeight;
   }
 
   init() {
@@ -59,17 +65,29 @@ export class Board {
   onMouseover = (e) => {
     const cardItem = e.target.closest('.card_item');
       if (cardItem) {
+          //cardItem.style.position = 'relative';
+          //const button = cardItem.querySelector('.delete_card_button');
           const button = this.card.getCloseButton();
           
           if (!cardItem.querySelector('.delete_card_button')) {
               cardItem.insertAdjacentHTML('beforeend', button);
+              //button.style.display = 'inline-block';
           }
       }
 
       if(this.dndCard) {
-        this.dndCard.style.top = e.clientY + 'px';
-        this.dndCard.style.left = e.clientX + 'px';
+        this.dndCard.style.width = `${this.originalWidth}px`;
+      //this.dndCard.style.height = `${this.originalHeight}px`;
+        this.dndCard.style.left = `${e.clientX - this.dragOffset.x}px`;
+        this.dndCard.style.top = `${e.clientY - this.dragOffset.y}px`;
+
+        //fantom element
+      const column = this.dndCard.closest('.cards_container');
+      const nextCard = this.dndCard.nextSibling;
+      this.placeholder.show(column, this.originalHeight, nextCard);
       }
+
+      
       
   }
 
@@ -86,8 +104,13 @@ export class Board {
 
   onMouseup = (e) => {
     const columnContainer = e.target.closest('.column_container');
+    //if(!columnContainer) return;
+
+
     const cardContainer = columnContainer.querySelector('.cards_container')
     const mouseUpCard = e.target.closest('.card_item');
+
+    if(!cardContainer) return;
 
     if(!mouseUpCard) {
       cardContainer.append(this.dndCard)
@@ -99,8 +122,12 @@ export class Board {
 
     if (!this.dndCard) return;
     this.dndCard.classList.remove('dragged');
-    this.dndCard = null;
+    this.dndCard.style.width = '';
+    //this.dndCard.style.height = '';
     document.body.style.cursor = '';
+    this.dndCard = null;
+    
+    this.placeholder.remove();
 
     document.documentElement.removeEventListener('mouseup', this.onMouseup);
   }
@@ -112,8 +139,23 @@ export class Board {
     e.preventDefault();
 
     this.dndCard = e.target.closest('.card_item');
+
+// Сохраняем оригинальные размеры (чтобы placeholder был такого же размера)
+    this.originalWidth = this.dndCard.offsetWidth;
+    this.originalHeight = this.dndCard.offsetHeight;
+
+
+    const cardRect = this.dndCard.getBoundingClientRect();
+    this.dragOffset = {
+        x: e.clientX - cardRect.left,
+        y: e.clientY - cardRect.top
+    };
+
+   // фиксировать минимальную высоту контейнера
+    
     this.dndCard.classList.add('dragged');
     document.body.style.cursor = 'grabbing';
+
 
     document.documentElement.addEventListener('mouseup', this.onMouseup);
   };
