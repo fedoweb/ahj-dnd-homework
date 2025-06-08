@@ -55,7 +55,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 .cards_container {
-
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -74,7 +73,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 .card_item.dragged {
-  /* position: absolute; */
   z-index: 999;
   box-sizing: border-box;
   pointer-events: none;
@@ -156,7 +154,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   color: rgb(21, 80, 117);
   background-color: white;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,wBAAwB;EACxB,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;AACd;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  position: relative;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  /* position: absolute; */\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.card_placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;AACd;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  position: relative;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.card_placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -659,6 +657,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddForm */ "./src/js/AddForm.js");
 /* harmony import */ var _Dnd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dnd */ "./src/js/Dnd.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -673,8 +677,6 @@ var Board = /*#__PURE__*/function () {
     var _this = this;
     _classCallCheck(this, Board);
     _defineProperty(this, "onClick", function (e) {
-      //e.preventDefault();
-
       var addButton = e.target.classList.contains('add_button');
       var closeFormButton = e.target.classList.contains('close_form_button');
       var addCardButton = e.target.classList.contains('add_card_button');
@@ -690,11 +692,13 @@ var Board = /*#__PURE__*/function () {
         ;
         _this.card.addCard(e.target, _this.data);
         _this.addForm.closeCardForm(e.target);
+        _this.saveState();
       }
       ;
       if (deleteCardButton) {
         var card = e.target.closest('.card_item');
         card.remove();
+        _this.saveState();
       }
       ;
     });
@@ -717,73 +721,77 @@ var Board = /*#__PURE__*/function () {
         if (button) button.remove();
       }
     });
+    this.STORAGE_KEY = 'dnd_board_data';
     this.container = document.querySelector('.container');
     this.card = new _Card__WEBPACK_IMPORTED_MODULE_0__.Card();
     this.addForm = new _AddForm__WEBPACK_IMPORTED_MODULE_1__.AddForm();
-    this.dnd = new _Dnd__WEBPACK_IMPORTED_MODULE_2__.Dnd(this.container);
-    this.data;
+    this.dnd = new _Dnd__WEBPACK_IMPORTED_MODULE_2__.Dnd(this.container, function () {
+      return _this.saveState();
+    });
+    this.data = this.loadState() || {
+      todo: [],
+      in_progress: [],
+      done: []
+    };
   }
   return _createClass(Board, [{
     key: "init",
     value: function init() {
+      var _this2 = this;
+      this.renderCards();
       this.container.addEventListener('click', this.onClick);
       this.container.addEventListener('change', this.onInput);
       document.documentElement.addEventListener('mouseover', this.onMouseover);
       document.documentElement.addEventListener('mouseout', this.onMouseout);
+      window.addEventListener('beforeunload', function () {
+        return _this2.saveState();
+      });
     }
-
-    // onMouseup = (e) => {
-    //   const columnContainer = e.target.closest('.column_container');
-    //   //if(!columnContainer) return;
-
-    //   const cardContainer = columnContainer.querySelector('.cards_container')
-    //   const mouseUpCard = e.target.closest('.card_item');
-
-    //   if(!cardContainer) return;
-
-    //   if(!mouseUpCard) {
-    //     cardContainer.append(this.dndCard)
-    //   } else {
-    //     cardContainer.insertBefore(this.dndCard, mouseUpCard);
-    //   };
-
-    //   if (!this.dndCard) return;
-    //   this.dndCard.classList.remove('dragged');
-    //   this.dndCard.style.width = '';
-    //   //this.dndCard.style.height = '';
-    //   document.body.style.cursor = '';
-    //   this.dndCard = null;
-
-    //   this.placeholder.remove();
-
-    //   document.documentElement.removeEventListener('mouseup', this.onMouseup);
-    // }
-
-    //   onMousedown = (e) => {
-    //     if (!e.target.closest('.card_item')) return;
-    //     if (e.target.classList.contains('delete_card_button')) return;
-
-    //     e.preventDefault();
-
-    //     this.dndCard = e.target.closest('.card_item');
-
-    // // Сохраняем оригинальные размеры (чтобы placeholder был такого же размера)
-    //     this.originalWidth = this.dndCard.offsetWidth;
-    //     this.originalHeight = this.dndCard.offsetHeight;
-
-    //     const cardRect = this.dndCard.getBoundingClientRect();
-    //     this.dragOffset = {
-    //         x: e.clientX - cardRect.left,
-    //         y: e.clientY - cardRect.top
-    //     };
-
-    //    // фиксировать минимальную высоту контейнера
-
-    //     this.dndCard.classList.add('dragged');
-    //     document.body.style.cursor = 'grabbing';
-
-    //     document.documentElement.addEventListener('mouseup', this.onMouseup);
-    //   };
+  }, {
+    key: "loadState",
+    value: function loadState() {
+      var data = localStorage.getItem(this.STORAGE_KEY);
+      return data ? JSON.parse(data) : null;
+    }
+  }, {
+    key: "saveState",
+    value: function saveState() {
+      var columns = {
+        todo: this.getColumnData('todo'),
+        in_progress: this.getColumnData('in_progress'),
+        done: this.getColumnData('done')
+      };
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(columns));
+    }
+  }, {
+    key: "getColumnData",
+    value: function getColumnData(className) {
+      var column = this.container.querySelector(".".concat(className));
+      if (!column) return [];
+      console.log(column.querySelectorAll('.card_item'));
+      return Array.from(column.querySelectorAll('.card_item')).map(function (card) {
+        return {
+          content: card.querySelector('.card_content').textContent || ''
+        };
+      });
+    }
+  }, {
+    key: "renderCards",
+    value: function renderCards() {
+      var _this3 = this;
+      Object.entries(this.data).forEach(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+          column = _ref2[0],
+          cards = _ref2[1];
+        var columnEl = _this3.container.querySelector(".".concat(column));
+        if (!columnEl) return;
+        var cardsContainer = columnEl.querySelector('.cards_container');
+        cardsContainer.innerHTML = '';
+        cards.forEach(function (cardData) {
+          cardsContainer.insertAdjacentHTML('beforeend', _this3.card.getCard(cardData.content));
+        });
+      });
+    }
   }]);
 }();
 
@@ -821,8 +829,9 @@ var Card = /*#__PURE__*/function () {
     }
   }, {
     key: "getCard",
-    value: function getCard(data) {
-      return "\n    <div class=\"card_item\">\n\n      <div class=\"card_content\">".concat(data, "</div>\n      <div class=\"card_status\"></div>\n    </div>\n    ");
+    value: function getCard(content) {
+      var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Date.now();
+      return "\n    <div class=\"card_item\" data-id=\"".concat(id, "\">\n      <div class=\"card_content\">").concat(content, "</div>\n      <div class=\"card_status\"></div>\n    </div>\n    ");
     }
   }, {
     key: "getCloseButton",
@@ -854,7 +863,7 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 var Dnd = /*#__PURE__*/function () {
-  function Dnd(container) {
+  function Dnd(container, callback) {
     var _this = this;
     _classCallCheck(this, Dnd);
     _defineProperty(this, "onMousedown", function (e) {
@@ -863,8 +872,6 @@ var Dnd = /*#__PURE__*/function () {
       e.preventDefault();
       _this.dndCard = e.target.closest('.card_item');
       _this.dndCard.classList.add('dragged');
-
-      // Сохраняем оригинальные размеры и позицию
       _this.originalDimensions = {
         width: _this.dndCard.offsetWidth,
         height: _this.dndCard.offsetHeight
@@ -879,17 +886,11 @@ var Dnd = /*#__PURE__*/function () {
     });
     _defineProperty(this, "onMousemove", function (e) {
       if (!_this.dndCard) return;
-
-      // Создаем placeholder в исходной позиции
       _this.placeholder.show(_this.dndCard.closest('.cards_container'), _this.originalDimensions.height, _this.dndCard.nextSibling);
-
-      // Перемещаем карточку
       _this.dndCard.style.position = 'absolute';
       _this.dndCard.style.width = "".concat(_this.originalDimensions.width, "px");
       _this.dndCard.style.left = "".concat(e.clientX - _this.dragOffset.x, "px");
       _this.dndCard.style.top = "".concat(e.clientY - _this.dragOffset.y, "px");
-
-      // Обновляем placeholder в целевой позиции
       var elements = document.elementsFromPoint(e.clientX, e.clientY);
       var column = elements.find(function (el) {
         return el.classList.contains('column_container');
@@ -914,8 +915,6 @@ var Dnd = /*#__PURE__*/function () {
     });
     _defineProperty(this, "onMouseup", function (e) {
       if (!_this.dndCard) return;
-
-      // Вставляем карточку на место placeholder
       if (_this.placeholder.isVisible() && _this.placeholder.element.parentNode) {
         _this.placeholder.element.replaceWith(_this.dndCard);
       }
@@ -926,11 +925,15 @@ var Dnd = /*#__PURE__*/function () {
       _this.dndCard.classList.remove('dragged');
       _this.placeholder.remove();
       _this.dndCard = null;
+      if (_this.callback) {
+        _this.callback();
+      }
       document.removeEventListener('mousemove', _this.onMousemove);
       document.removeEventListener('mouseup', _this.onMouseup);
     });
     this.container = container;
     this.placeholder = new _Placeholder__WEBPACK_IMPORTED_MODULE_0__.Placeholder();
+    this.callback = callback;
     this.dndCard = null;
     this.dragOffset = {
       x: 0,
