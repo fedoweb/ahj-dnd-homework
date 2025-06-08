@@ -1,41 +1,47 @@
 export class Placeholder {
   constructor() {
-    this.element = this.createPlaceholder();
-    this.isInDOM = false;
-  }
-
-  createPlaceholder() {
-    const el = document.createElement('div');
-    el.className = 'card-placeholder';
-    el.style.display = 'none';
-    return el;
+    this.element = document.createElement('div');
+    this.element.className = 'card_placeholder';
+    this.element.style.display = 'none';
   }
 
   show(parent, height, beforeNode = null) {
     this.element.style.height = `${height}px`;
-    
-    if (!this.isInDOM) {
-      if (beforeNode) {
-        parent.insertBefore(this.element, beforeNode);
-      } else {
-        parent.appendChild(this.element);
-      }
-      this.isInDOM = true;
+    if (beforeNode) {
+      parent.insertBefore(this.element, beforeNode);
+    } else {
+      parent.appendChild(this.element);
     }
-    
     this.element.style.display = 'block';
   }
 
   hide() {
-    if (this.isInDOM) {
-      this.element.style.display = 'none';
-    }
+    this.element.style.display = 'none';
   }
 
   remove() {
-    if (this.isInDOM && this.element.parentNode) {
+    if (this.element.parentNode) {
       this.element.parentNode.removeChild(this.element);
-      this.isInDOM = false;
     }
+  }
+
+  insertBefore(node) {
+    node.parentNode.insertBefore(this.element, node);
+  }
+
+  insertAfter(node) {
+    if (node.nextSibling) {
+      node.parentNode.insertBefore(this.element, node.nextSibling);
+    } else {
+      node.parentNode.appendChild(this.element);
+    }
+  }
+
+  appendTo(container) {
+    container.appendChild(this.element);
+  }
+
+  isVisible() {
+    return this.element.style.display !== 'none';
   }
 }
