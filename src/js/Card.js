@@ -13,11 +13,10 @@ export class Card {
     cardContainer.insertAdjacentHTML('beforeend', card);
   }
 
-  getCard(data) {
+  getCard(content, id = Date.now()) {
     return `
-    <div class="card_item">
-
-      <div class="card_content">${data}</div>
+    <div class="card_item" data-id="${id}">
+      <div class="card_content">${content}</div>
       <div class="card_status"></div>
     </div>
     `;

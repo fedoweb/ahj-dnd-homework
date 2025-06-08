@@ -1,9 +1,10 @@
 import { Placeholder } from "./Placeholder";
 
 export class Dnd {
-  constructor(container) {
+  constructor(container, callback) {
     this.container = container;
     this.placeholder = new Placeholder();
+    this.callback = callback;
     this.dndCard = null;
     this.dragOffset = { x: 0, y: 0 };
     this.originalDimensions = { width: 0, height: 0 };
@@ -24,7 +25,6 @@ export class Dnd {
     this.dndCard = e.target.closest('.card_item');
     this.dndCard.classList.add('dragged');
 
-    // Сохраняем оригинальные размеры и позицию
     this.originalDimensions = {
       width: this.dndCard.offsetWidth,
       height: this.dndCard.offsetHeight
@@ -36,8 +36,6 @@ export class Dnd {
       y: e.clientY - cardRect.top
     };
 
-    
-
     document.addEventListener('mousemove', this.onMousemove);
     document.addEventListener('mouseup', this.onMouseup);
   };
@@ -45,18 +43,15 @@ export class Dnd {
   onMousemove = (e) => {
     if (!this.dndCard) return;
 
-    // Создаем placeholder в исходной позиции
     this.placeholder.show(this.dndCard.closest('.cards_container'),
                           this.originalDimensions.height,
                           this.dndCard.nextSibling);
 
-    // Перемещаем карточку
     this.dndCard.style.position = 'absolute';
     this.dndCard.style.width = `${this.originalDimensions.width}px`;
     this.dndCard.style.left = `${e.clientX - this.dragOffset.x}px`;
     this.dndCard.style.top = `${e.clientY - this.dragOffset.y}px`;
 
-    // Обновляем placeholder в целевой позиции
     const elements = document.elementsFromPoint(e.clientX, e.clientY);
     const column = elements.find(el => el.classList.contains('column_container'));
     
@@ -83,7 +78,6 @@ export class Dnd {
   onMouseup = (e) => {
     if (!this.dndCard) return;
 
-    // Вставляем карточку на место placeholder
     if (this.placeholder.isVisible() && this.placeholder.element.parentNode) {
       this.placeholder.element.replaceWith(this.dndCard);
     }
@@ -96,6 +90,10 @@ export class Dnd {
     
     this.placeholder.remove();
     this.dndCard = null;
+
+    if (this.callback) {
+      this.callback();
+    }
 
     document.removeEventListener('mousemove', this.onMousemove);
     document.removeEventListener('mouseup', this.onMouseup);

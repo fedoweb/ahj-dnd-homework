@@ -4,35 +4,41 @@ import { Dnd } from "./Dnd";
 
 export class Board {
   constructor() {
+    this.STORAGE_KEY = 'dnd_board_data';
     this.container = document.querySelector('.container');
     this.card = new Card();
     this.addForm = new AddForm();
-    this.dnd = new Dnd(this.container);
-    this.data;
+    this.dnd = new Dnd(this.container, () => this.saveState());
+    this.data = this.loadState() || {
+      todo: [],
+      in_progress: [],
+      done: []
+    };
   }
 
   init() {
+    this.renderCards();
+    
     this.container.addEventListener('click', this.onClick);
     this.container.addEventListener('change', this.onInput);
 
     document.documentElement.addEventListener('mouseover', this.onMouseover);
     document.documentElement.addEventListener('mouseout', this.onMouseout);
 
+    window.addEventListener('beforeunload', () => this.saveState());
   }
 
   onClick = (e) => {
-    //e.preventDefault();
-
     const addButton = e.target.classList.contains('add_button');
     const closeFormButton = e.target.classList.contains('close_form_button');
     const addCardButton = e.target.classList.contains('add_card_button');
     const deleteCardButton = e.target.classList.contains('delete_card_button');
 
-    if(addButton) this.addForm.addCardForm(e.target);
+    if (addButton) this.addForm.addCardForm(e.target);
 
-    if(closeFormButton) this.addForm.closeCardForm(e.target);
+    if (closeFormButton) this.addForm.closeCardForm(e.target);
 
-    if(addCardButton) {
+    if (addCardButton) {
       const input = document.querySelector('.card_input');
   
       if (!input.value.trim()) {
@@ -42,11 +48,13 @@ export class Board {
 
       this.card.addCard(e.target, this.data);
       this.addForm.closeCardForm(e.target);
+      this.saveState();
     };
 
-    if(deleteCardButton) {
+    if (deleteCardButton) {
       const card = e.target.closest('.card_item');
       card.remove();
+      this.saveState();
     };
   }
 
@@ -74,61 +82,43 @@ export class Board {
       }
   }
 
-  // onMouseup = (e) => {
-  //   const columnContainer = e.target.closest('.column_container');
-  //   //if(!columnContainer) return;
+  loadState() {
+    const data = localStorage.getItem(this.STORAGE_KEY);
+    return data ? JSON.parse(data) : null;
+  }
 
+  saveState() {
+    const columns = {
+      todo: this.getColumnData('todo'),
+      in_progress: this.getColumnData('in_progress'),
+      done: this.getColumnData('done')
+    };
 
-  //   const cardContainer = columnContainer.querySelector('.cards_container')
-  //   const mouseUpCard = e.target.closest('.card_item');
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(columns));
+  }
 
-  //   if(!cardContainer) return;
+  getColumnData(className) {
+    const column = this.container.querySelector(`.${className}`);
+    if (!column) return [];
 
-  //   if(!mouseUpCard) {
-  //     cardContainer.append(this.dndCard)
-  //   } else {
-  //     cardContainer.insertBefore(this.dndCard, mouseUpCard);
-  //   };
+    console.log(column.querySelectorAll('.card_item'));
 
-    
+    return Array.from(column.querySelectorAll('.card_item')).map(card => ({
+      content: card.querySelector('.card_content').textContent || '',
+    }));
+  }
 
-  //   if (!this.dndCard) return;
-  //   this.dndCard.classList.remove('dragged');
-  //   this.dndCard.style.width = '';
-  //   //this.dndCard.style.height = '';
-  //   document.body.style.cursor = '';
-  //   this.dndCard = null;
-    
-  //   this.placeholder.remove();
-
-  //   document.documentElement.removeEventListener('mouseup', this.onMouseup);
-  // }
-
-//   onMousedown = (e) => {
-//     if (!e.target.closest('.card_item')) return;
-//     if (e.target.classList.contains('delete_card_button')) return;
-    
-//     e.preventDefault();
-
-//     this.dndCard = e.target.closest('.card_item');
-
-// // Сохраняем оригинальные размеры (чтобы placeholder был такого же размера)
-//     this.originalWidth = this.dndCard.offsetWidth;
-//     this.originalHeight = this.dndCard.offsetHeight;
-
-
-//     const cardRect = this.dndCard.getBoundingClientRect();
-//     this.dragOffset = {
-//         x: e.clientX - cardRect.left,
-//         y: e.clientY - cardRect.top
-//     };
-
-//    // фиксировать минимальную высоту контейнера
-    
-//     this.dndCard.classList.add('dragged');
-//     document.body.style.cursor = 'grabbing';
-
-
-//     document.documentElement.addEventListener('mouseup', this.onMouseup);
-//   };
+  renderCards() {
+    Object.entries(this.data).forEach(([column, cards]) => {
+      const columnEl = this.container.querySelector(`.${column}`);
+      if (!columnEl) return;
+      
+      const cardsContainer = columnEl.querySelector('.cards_container');
+      cardsContainer.innerHTML = '';
+      
+      cards.forEach(cardData => {
+        cardsContainer.insertAdjacentHTML('beforeend', this.card.getCard(cardData.content));
+      });
+    });
+  }
 }
