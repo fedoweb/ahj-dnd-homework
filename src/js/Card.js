@@ -6,6 +6,7 @@ export class Card {
   }
 
   addCard(element, data) {
+    if (!data.trim()) return;
     const container = element.closest('.column_container');
     const cardContainer = container.querySelector('.cards_container');
     const card = this.getCard(data);

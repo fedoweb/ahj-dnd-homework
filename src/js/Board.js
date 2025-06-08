@@ -1,6 +1,7 @@
 import { Card } from "./Card";
 import { AddForm } from "./AddForm";
 import { Dnd } from "./Dnd";
+import { Tooltip } from "./Tooltip";
 
 export class Board {
   constructor() {
@@ -14,13 +15,14 @@ export class Board {
       in_progress: [],
       done: []
     };
+    this.tooltip = new Tooltip();
   }
 
   init() {
     this.renderCards();
     
     this.container.addEventListener('click', this.onClick);
-    this.container.addEventListener('change', this.onInput);
+    this.container.addEventListener('change', this.onChange);
 
     document.documentElement.addEventListener('mouseover', this.onMouseover);
     document.documentElement.addEventListener('mouseout', this.onMouseout);
@@ -39,11 +41,14 @@ export class Board {
     if (closeFormButton) this.addForm.closeCardForm(e.target);
 
     if (addCardButton) {
+      e.preventDefault();
+
       const input = document.querySelector('.card_input');
+      const inputValue = input.value;
   
       if (!input.value.trim()) {
-        input.focus();
-        return;
+        this.tooltip.showTooltip('Введите текст, пожалуйста!', input);
+        return null;
       };
 
       this.card.addCard(e.target, this.data);
@@ -56,9 +61,11 @@ export class Board {
       card.remove();
       this.saveState();
     };
+
+    this.tooltip.removeTooltip();
   }
 
-  onInput = (e) => {
+  onChange = (e) => {
     this.data = e.target.value;
   }
 

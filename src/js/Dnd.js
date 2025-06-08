@@ -23,7 +23,9 @@ export class Dnd {
     e.preventDefault();
 
     this.dndCard = e.target.closest('.card_item');
+    
     this.dndCard.classList.add('dragged');
+    document.body.style.cursor = 'grabbing';
 
     this.originalDimensions = {
       width: this.dndCard.offsetWidth,
@@ -86,6 +88,7 @@ export class Dnd {
     this.dndCard.style.left = '';
     this.dndCard.style.top = '';
     this.dndCard.style.width = '';
+    document.body.style.cursor = '';
     this.dndCard.classList.remove('dragged');
     
     this.placeholder.remove();

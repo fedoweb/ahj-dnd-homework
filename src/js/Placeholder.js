@@ -10,7 +10,7 @@ export class Placeholder {
     if (beforeNode) {
       parent.insertBefore(this.element, beforeNode);
     } else {
-      parent.appendChild(this.element);
+      parent.append(this.element);
     }
     this.element.style.display = 'block';
   }
@@ -21,7 +21,7 @@ export class Placeholder {
 
   remove() {
     if (this.element.parentNode) {
-      this.element.parentNode.removeChild(this.element);
+      this.element.parentNode.remove(this.element);
     }
   }
 
@@ -33,12 +33,12 @@ export class Placeholder {
     if (node.nextSibling) {
       node.parentNode.insertBefore(this.element, node.nextSibling);
     } else {
-      node.parentNode.appendChild(this.element);
+      node.parentNode.append(this.element);
     }
   }
 
   appendTo(container) {
-    container.appendChild(this.element);
+    container.append(this.element);
   }
 
   isVisible() {
