@@ -77,6 +77,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   box-sizing: border-box;
   pointer-events: none;
   opacity: 0.5;
+  cursor: grabbing;
 }
 
 .card_placeholder {
@@ -154,7 +155,18 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   color: rgb(21, 80, 117);
   background-color: white;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;AACd;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  position: relative;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.card_placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
+}
+
+.form_error {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: rgb(202, 45, 45);
+  padding: 3px;
+  background-color: rgb(250, 234, 234);
+  border-radius: 3px;
+  box-shadow: 0px 2px 0px 0px rgba(255, 0, 0, 0.3);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;EACZ,gBAAgB;AAClB;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,gDAAgD;AAClD","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  position: relative;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n  cursor: grabbing;\n}\n\n.card_placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}\n\n.form_error {\n  position: absolute;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(202, 45, 45);\n  padding: 3px;\n  background-color: rgb(250, 234, 234);\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(255, 0, 0, 0.3);\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -656,6 +668,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card */ "./src/js/Card.js");
 /* harmony import */ var _AddForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddForm */ "./src/js/AddForm.js");
 /* harmony import */ var _Dnd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dnd */ "./src/js/Dnd.js");
+/* harmony import */ var _Tooltip__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Tooltip */ "./src/js/Tooltip.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -672,6 +685,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
+
 var Board = /*#__PURE__*/function () {
   function Board() {
     var _this = this;
@@ -684,10 +698,12 @@ var Board = /*#__PURE__*/function () {
       if (addButton) _this.addForm.addCardForm(e.target);
       if (closeFormButton) _this.addForm.closeCardForm(e.target);
       if (addCardButton) {
+        e.preventDefault();
         var input = document.querySelector('.card_input');
+        var inputValue = input.value;
         if (!input.value.trim()) {
-          input.focus();
-          return;
+          _this.tooltip.showTooltip('Введите текст, пожалуйста!', input);
+          return null;
         }
         ;
         _this.card.addCard(e.target, _this.data);
@@ -701,8 +717,9 @@ var Board = /*#__PURE__*/function () {
         _this.saveState();
       }
       ;
+      _this.tooltip.removeTooltip();
     });
-    _defineProperty(this, "onInput", function (e) {
+    _defineProperty(this, "onChange", function (e) {
       _this.data = e.target.value;
     });
     _defineProperty(this, "onMouseover", function (e) {
@@ -733,6 +750,7 @@ var Board = /*#__PURE__*/function () {
       in_progress: [],
       done: []
     };
+    this.tooltip = new _Tooltip__WEBPACK_IMPORTED_MODULE_3__.Tooltip();
   }
   return _createClass(Board, [{
     key: "init",
@@ -740,7 +758,7 @@ var Board = /*#__PURE__*/function () {
       var _this2 = this;
       this.renderCards();
       this.container.addEventListener('click', this.onClick);
-      this.container.addEventListener('change', this.onInput);
+      this.container.addEventListener('change', this.onChange);
       document.documentElement.addEventListener('mouseover', this.onMouseover);
       document.documentElement.addEventListener('mouseout', this.onMouseout);
       window.addEventListener('beforeunload', function () {
@@ -822,6 +840,7 @@ var Card = /*#__PURE__*/function () {
   return _createClass(Card, [{
     key: "addCard",
     value: function addCard(element, data) {
+      if (!data.trim()) return;
       var container = element.closest('.column_container');
       var cardContainer = container.querySelector('.cards_container');
       var card = this.getCard(data);
@@ -872,6 +891,7 @@ var Dnd = /*#__PURE__*/function () {
       e.preventDefault();
       _this.dndCard = e.target.closest('.card_item');
       _this.dndCard.classList.add('dragged');
+      document.body.style.cursor = 'grabbing';
       _this.originalDimensions = {
         width: _this.dndCard.offsetWidth,
         height: _this.dndCard.offsetHeight
@@ -922,6 +942,7 @@ var Dnd = /*#__PURE__*/function () {
       _this.dndCard.style.left = '';
       _this.dndCard.style.top = '';
       _this.dndCard.style.width = '';
+      document.body.style.cursor = '';
       _this.dndCard.classList.remove('dragged');
       _this.placeholder.remove();
       _this.dndCard = null;
@@ -1000,7 +1021,7 @@ var Placeholder = /*#__PURE__*/function () {
       if (beforeNode) {
         parent.insertBefore(this.element, beforeNode);
       } else {
-        parent.appendChild(this.element);
+        parent.append(this.element);
       }
       this.element.style.display = 'block';
     }
@@ -1013,7 +1034,7 @@ var Placeholder = /*#__PURE__*/function () {
     key: "remove",
     value: function remove() {
       if (this.element.parentNode) {
-        this.element.parentNode.removeChild(this.element);
+        this.element.parentNode.remove(this.element);
       }
     }
   }, {
@@ -1027,18 +1048,62 @@ var Placeholder = /*#__PURE__*/function () {
       if (node.nextSibling) {
         node.parentNode.insertBefore(this.element, node.nextSibling);
       } else {
-        node.parentNode.appendChild(this.element);
+        node.parentNode.append(this.element);
       }
     }
   }, {
     key: "appendTo",
     value: function appendTo(container) {
-      container.appendChild(this.element);
+      container.append(this.element);
     }
   }, {
     key: "isVisible",
     value: function isVisible() {
       return this.element.style.display !== 'none';
+    }
+  }]);
+}();
+
+/***/ }),
+
+/***/ "./src/js/Tooltip.js":
+/*!***************************!*\
+  !*** ./src/js/Tooltip.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Tooltip: () => (/* binding */ Tooltip)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var Tooltip = /*#__PURE__*/function () {
+  function Tooltip() {
+    _classCallCheck(this, Tooltip);
+  }
+  return _createClass(Tooltip, [{
+    key: "showTooltip",
+    value: function showTooltip(message, element) {
+      var tooltipElement = document.createElement('div');
+      tooltipElement.classList.add('form_error');
+      tooltipElement.textContent = message;
+      document.body.append(tooltipElement);
+      var _element$getBoundingC = element.getBoundingClientRect(),
+        left = _element$getBoundingC.left,
+        top = _element$getBoundingC.top;
+      tooltipElement.style.left = left + 'px';
+      tooltipElement.style.top = top - element.offsetHeight - 5 + 'px';
+    }
+  }, {
+    key: "removeTooltip",
+    value: function removeTooltip() {
+      var tooltip = document.querySelector('.form_error');
+      if (tooltip) tooltip.remove();
     }
   }]);
 }();
