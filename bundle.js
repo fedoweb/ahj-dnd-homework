@@ -62,7 +62,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 .card_item {
-
+  position: relative;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   color: rgb(80, 107, 124);
@@ -74,14 +74,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 .card_item.dragged {
-  position: absolute;
+  /* position: absolute; */
   z-index: 999;
   box-sizing: border-box;
   pointer-events: none;
   opacity: 0.5;
 }
 
-.card-placeholder {
+.card_placeholder {
   height: 60px; /* или динамически под размер карточки */
   background: rgba(0, 0, 0, 0.1);
   border: 2px dashed #ccc;
@@ -156,7 +156,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   color: rgb(21, 80, 117);
   background-color: white;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;;EAEE,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;AACd;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  position: absolute;\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.card-placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,aAAa;;EAEb,yCAAyC;EACzC,eAAe;EACf,uBAAuB;EACvB,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;AACzB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;AACpB;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;EAClD,YAAY;AACd;;AAEA;EACE,wBAAwB;EACxB,YAAY;EACZ,sBAAsB;EACtB,oBAAoB;EACpB,YAAY;AACd;;AAEA;EACE,YAAY,EAAE,wCAAwC;EACtD,8BAA8B;EAC9B,uBAAuB;EACvB,kBAAkB;EAClB,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,gBAAgB;EAChB,uBAAuB;EACvB,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,yCAAyC;EACzC,eAAe;EACf,wBAAwB;EACxB,YAAY;EACZ,uBAAuB;EACvB,kBAAkB;EAClB,kDAAkD;AACpD;;AAEA;EACE,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,yCAAyC;EACzC,eAAe;EACf,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,cAAc;EACd,mCAAmC;EACnC,kBAAkB;EAClB,uBAAuB;EACvB,uBAAuB;EACvB,eAAe;AACjB","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  gap: 10px;\n  padding: 10px;\n\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 10px;\n  color: rgb(21, 80, 117);\n  background-color: rgb(60, 119, 155);\n}\n\n.title {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n\n.column_container {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  padding: 5px;\n  background-color: rgb(228, 228, 228);\n  border-radius: 3px;\n}\n\n.cards_container {\n\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.card_item {\n  position: relative;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n  cursor: grab;\n}\n\n.card_item.dragged {\n  /* position: absolute; */\n  z-index: 999;\n  box-sizing: border-box;\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.card_placeholder {\n  height: 60px; /* или динамически под размер карточки */\n  background: rgba(0, 0, 0, 0.1);\n  border: 2px dashed #ccc;\n  border-radius: 4px;\n  margin: 5px 0;\n  transition: height 0.2s;\n}\n\n.btn {\n  margin-top: 10px;\n  color: rgb(21, 80, 117);\n  background: none;\n  border: none;\n}\n.btn:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.add_form {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 15px;\n  color: rgb(80, 107, 124);\n  padding: 5px;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0px 2px 0px 0px rgba(21, 80, 177, 0.3);\n}\n\n.card_input {\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 2px;\n  color: rgb(21, 80, 117);\n}\n\n.card_input::placeholder {\n  padding: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgb(202, 201, 201);\n}\n\n.add_card_button {\n  padding: 5px;\n  background-color: rgb(108, 209, 135);\n  border-radius: 2px;\n  border: none;\n}\n\n.close_form_button {\n  padding: 5px;\n  background-color: rgb(209, 108, 108);\n  border-radius: 2px;\n  border: none;\n}\n\n.add_button {\n  margin-top: auto;\n  margin-right: auto;\n}\n\n.delete_card_button {\n  position: absolute;\n  top: 1px;\n  right: 1px;\n  padding: 0 3px;\n  border: 2px solid rgb(60, 119, 155);\n  border-radius: 5px;\n  color: rgb(21, 80, 117);\n  background-color: white;\n  cursor: pointer;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -657,7 +657,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card */ "./src/js/Card.js");
 /* harmony import */ var _AddForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddForm */ "./src/js/AddForm.js");
-/* harmony import */ var _Placeholder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Placeholder */ "./src/js/Placeholder.js");
+/* harmony import */ var _Dnd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dnd */ "./src/js/Dnd.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
@@ -703,92 +703,25 @@ var Board = /*#__PURE__*/function () {
     });
     _defineProperty(this, "onMouseover", function (e) {
       var cardItem = e.target.closest('.card_item');
-      if (cardItem) {
-        //cardItem.style.position = 'relative';
-        //const button = cardItem.querySelector('.delete_card_button');
+      if (cardItem && !_this.dnd.dndCard) {
         var button = _this.card.getCloseButton();
         if (!cardItem.querySelector('.delete_card_button')) {
           cardItem.insertAdjacentHTML('beforeend', button);
-          //button.style.display = 'inline-block';
         }
-      }
-      if (_this.dndCard) {
-        _this.dndCard.style.width = "".concat(_this.originalWidth, "px");
-        //this.dndCard.style.height = `${this.originalHeight}px`;
-        _this.dndCard.style.left = "".concat(e.clientX - _this.dragOffset.x, "px");
-        _this.dndCard.style.top = "".concat(e.clientY - _this.dragOffset.y, "px");
-
-        //fantom element
-        var column = _this.dndCard.closest('.cards_container');
-        var nextCard = _this.dndCard.nextSibling;
-        _this.placeholder.show(column, _this.originalHeight, nextCard);
       }
     });
     _defineProperty(this, "onMouseout", function (e) {
       var cardItem = e.target.closest('.card_item');
       if (cardItem && !cardItem.contains(e.relatedTarget)) {
         var button = cardItem.querySelector('.delete_card_button');
-        if (button) {
-          button.remove();
-        }
+        if (button) button.remove();
       }
-    });
-    _defineProperty(this, "onMouseup", function (e) {
-      var columnContainer = e.target.closest('.column_container');
-      //if(!columnContainer) return;
-
-      var cardContainer = columnContainer.querySelector('.cards_container');
-      var mouseUpCard = e.target.closest('.card_item');
-      if (!cardContainer) return;
-      if (!mouseUpCard) {
-        cardContainer.append(_this.dndCard);
-      } else {
-        cardContainer.insertBefore(_this.dndCard, mouseUpCard);
-      }
-      ;
-      if (!_this.dndCard) return;
-      _this.dndCard.classList.remove('dragged');
-      _this.dndCard.style.width = '';
-      //this.dndCard.style.height = '';
-      document.body.style.cursor = '';
-      _this.dndCard = null;
-      _this.placeholder.remove();
-      document.documentElement.removeEventListener('mouseup', _this.onMouseup);
-    });
-    _defineProperty(this, "onMousedown", function (e) {
-      if (!e.target.closest('.card_item')) return;
-      if (e.target.classList.contains('delete_card_button')) return;
-      e.preventDefault();
-      _this.dndCard = e.target.closest('.card_item');
-
-      // Сохраняем оригинальные размеры (чтобы placeholder был такого же размера)
-      _this.originalWidth = _this.dndCard.offsetWidth;
-      _this.originalHeight = _this.dndCard.offsetHeight;
-      var cardRect = _this.dndCard.getBoundingClientRect();
-      _this.dragOffset = {
-        x: e.clientX - cardRect.left,
-        y: e.clientY - cardRect.top
-      };
-
-      // фиксировать минимальную высоту контейнера
-
-      _this.dndCard.classList.add('dragged');
-      document.body.style.cursor = 'grabbing';
-      document.documentElement.addEventListener('mouseup', _this.onMouseup);
     });
     this.container = document.querySelector('.container');
     this.card = new _Card__WEBPACK_IMPORTED_MODULE_0__.Card();
     this.addForm = new _AddForm__WEBPACK_IMPORTED_MODULE_1__.AddForm();
-    this.placeholder = new _Placeholder__WEBPACK_IMPORTED_MODULE_2__.Placeholder();
+    this.dnd = new _Dnd__WEBPACK_IMPORTED_MODULE_2__.Dnd(this.container);
     this.data;
-    this.dndCard = null;
-    this.mouseUpCard = null;
-    this.dragOffset = {
-      x: 0,
-      y: 0
-    };
-    this.originalWidth;
-    this.originalHeight;
   }
   return _createClass(Board, [{
     key: "init",
@@ -797,9 +730,60 @@ var Board = /*#__PURE__*/function () {
       this.container.addEventListener('change', this.onInput);
       document.documentElement.addEventListener('mouseover', this.onMouseover);
       document.documentElement.addEventListener('mouseout', this.onMouseout);
-      this.container.addEventListener('mousedown', this.onMousedown);
-      //this.container.addEventListener('mouseup', this.onMouseup);
     }
+
+    // onMouseup = (e) => {
+    //   const columnContainer = e.target.closest('.column_container');
+    //   //if(!columnContainer) return;
+
+    //   const cardContainer = columnContainer.querySelector('.cards_container')
+    //   const mouseUpCard = e.target.closest('.card_item');
+
+    //   if(!cardContainer) return;
+
+    //   if(!mouseUpCard) {
+    //     cardContainer.append(this.dndCard)
+    //   } else {
+    //     cardContainer.insertBefore(this.dndCard, mouseUpCard);
+    //   };
+
+    //   if (!this.dndCard) return;
+    //   this.dndCard.classList.remove('dragged');
+    //   this.dndCard.style.width = '';
+    //   //this.dndCard.style.height = '';
+    //   document.body.style.cursor = '';
+    //   this.dndCard = null;
+
+    //   this.placeholder.remove();
+
+    //   document.documentElement.removeEventListener('mouseup', this.onMouseup);
+    // }
+
+    //   onMousedown = (e) => {
+    //     if (!e.target.closest('.card_item')) return;
+    //     if (e.target.classList.contains('delete_card_button')) return;
+
+    //     e.preventDefault();
+
+    //     this.dndCard = e.target.closest('.card_item');
+
+    // // Сохраняем оригинальные размеры (чтобы placeholder был такого же размера)
+    //     this.originalWidth = this.dndCard.offsetWidth;
+    //     this.originalHeight = this.dndCard.offsetHeight;
+
+    //     const cardRect = this.dndCard.getBoundingClientRect();
+    //     this.dragOffset = {
+    //         x: e.clientX - cardRect.left,
+    //         y: e.clientY - cardRect.top
+    //     };
+
+    //    // фиксировать минимальную высоту контейнера
+
+    //     this.dndCard.classList.add('dragged');
+    //     document.body.style.cursor = 'grabbing';
+
+    //     document.documentElement.addEventListener('mouseup', this.onMouseup);
+    //   };
   }]);
 }();
 
@@ -850,6 +834,138 @@ var Card = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/js/Dnd.js":
+/*!***********************!*\
+  !*** ./src/js/Dnd.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Dnd: () => (/* binding */ Dnd)
+/* harmony export */ });
+/* harmony import */ var _Placeholder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Placeholder */ "./src/js/Placeholder.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+var Dnd = /*#__PURE__*/function () {
+  function Dnd(container) {
+    var _this = this;
+    _classCallCheck(this, Dnd);
+    _defineProperty(this, "onMousedown", function (e) {
+      if (!e.target.closest('.card_item')) return;
+      if (e.target.classList.contains('delete_card_button')) return;
+      e.preventDefault();
+      _this.dndCard = e.target.closest('.card_item');
+      _this.dndCard.classList.add('dragged');
+
+      // Сохраняем оригинальные размеры и позицию
+      _this.originalDimensions = {
+        width: _this.dndCard.offsetWidth,
+        height: _this.dndCard.offsetHeight
+      };
+      var cardRect = _this.dndCard.getBoundingClientRect();
+      _this.dragOffset = {
+        x: e.clientX - cardRect.left,
+        y: e.clientY - cardRect.top
+      };
+      document.addEventListener('mousemove', _this.onMousemove);
+      document.addEventListener('mouseup', _this.onMouseup);
+    });
+    _defineProperty(this, "onMousemove", function (e) {
+      if (!_this.dndCard) return;
+
+      // Создаем placeholder в исходной позиции
+      _this.placeholder.show(_this.dndCard.closest('.cards_container'), _this.originalDimensions.height, _this.dndCard.nextSibling);
+
+      // Перемещаем карточку
+      _this.dndCard.style.position = 'absolute';
+      _this.dndCard.style.width = "".concat(_this.originalDimensions.width, "px");
+      _this.dndCard.style.left = "".concat(e.clientX - _this.dragOffset.x, "px");
+      _this.dndCard.style.top = "".concat(e.clientY - _this.dragOffset.y, "px");
+
+      // Обновляем placeholder в целевой позиции
+      var elements = document.elementsFromPoint(e.clientX, e.clientY);
+      var column = elements.find(function (el) {
+        return el.classList.contains('column_container');
+      });
+      if (column) {
+        var cardsContainer = column.querySelector('.cards_container');
+        var cards = Array.from(cardsContainer.children).filter(function (child) {
+          return child !== _this.dndCard && child !== _this.placeholder.element;
+        });
+        var closestCard = _this.findClosestCard(cards, e.clientY);
+        if (closestCard) {
+          var cardRect = closestCard.getBoundingClientRect();
+          if (e.clientY < cardRect.top + cardRect.height / 2) {
+            _this.placeholder.insertBefore(closestCard);
+          } else {
+            _this.placeholder.insertAfter(closestCard);
+          }
+        } else {
+          _this.placeholder.appendTo(cardsContainer);
+        }
+      }
+    });
+    _defineProperty(this, "onMouseup", function (e) {
+      if (!_this.dndCard) return;
+
+      // Вставляем карточку на место placeholder
+      if (_this.placeholder.isVisible() && _this.placeholder.element.parentNode) {
+        _this.placeholder.element.replaceWith(_this.dndCard);
+      }
+      _this.dndCard.style.position = '';
+      _this.dndCard.style.left = '';
+      _this.dndCard.style.top = '';
+      _this.dndCard.style.width = '';
+      _this.dndCard.classList.remove('dragged');
+      _this.placeholder.remove();
+      _this.dndCard = null;
+      document.removeEventListener('mousemove', _this.onMousemove);
+      document.removeEventListener('mouseup', _this.onMouseup);
+    });
+    this.container = container;
+    this.placeholder = new _Placeholder__WEBPACK_IMPORTED_MODULE_0__.Placeholder();
+    this.dndCard = null;
+    this.dragOffset = {
+      x: 0,
+      y: 0
+    };
+    this.originalDimensions = {
+      width: 0,
+      height: 0
+    };
+    this.init();
+  }
+  return _createClass(Dnd, [{
+    key: "init",
+    value: function init() {
+      this.container.addEventListener('mousedown', this.onMousedown);
+    }
+  }, {
+    key: "findClosestCard",
+    value: function findClosestCard(cards, mouseY) {
+      return cards.reduce(function (closest, card) {
+        var rect = card.getBoundingClientRect();
+        var offset = mouseY - rect.top - rect.height / 2;
+        return offset < 0 && offset > closest.offset ? {
+          offset: offset,
+          element: card
+        } : closest;
+      }, {
+        offset: Number.NEGATIVE_INFINITY
+      }).element;
+    }
+  }]);
+}();
+
+/***/ }),
+
 /***/ "./src/js/Placeholder.js":
 /*!*******************************!*\
   !*** ./src/js/Placeholder.js ***!
@@ -869,46 +985,57 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 var Placeholder = /*#__PURE__*/function () {
   function Placeholder() {
     _classCallCheck(this, Placeholder);
-    this.element = this.createPlaceholder();
-    this.isInDOM = false;
+    this.element = document.createElement('div');
+    this.element.className = 'card_placeholder';
+    this.element.style.display = 'none';
   }
   return _createClass(Placeholder, [{
-    key: "createPlaceholder",
-    value: function createPlaceholder() {
-      var el = document.createElement('div');
-      el.className = 'card-placeholder';
-      el.style.display = 'none';
-      return el;
-    }
-  }, {
     key: "show",
     value: function show(parent, height) {
       var beforeNode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
       this.element.style.height = "".concat(height, "px");
-      if (!this.isInDOM) {
-        if (beforeNode) {
-          parent.insertBefore(this.element, beforeNode);
-        } else {
-          parent.appendChild(this.element);
-        }
-        this.isInDOM = true;
+      if (beforeNode) {
+        parent.insertBefore(this.element, beforeNode);
+      } else {
+        parent.appendChild(this.element);
       }
       this.element.style.display = 'block';
     }
   }, {
     key: "hide",
     value: function hide() {
-      if (this.isInDOM) {
-        this.element.style.display = 'none';
-      }
+      this.element.style.display = 'none';
     }
   }, {
     key: "remove",
     value: function remove() {
-      if (this.isInDOM && this.element.parentNode) {
+      if (this.element.parentNode) {
         this.element.parentNode.removeChild(this.element);
-        this.isInDOM = false;
       }
+    }
+  }, {
+    key: "insertBefore",
+    value: function insertBefore(node) {
+      node.parentNode.insertBefore(this.element, node);
+    }
+  }, {
+    key: "insertAfter",
+    value: function insertAfter(node) {
+      if (node.nextSibling) {
+        node.parentNode.insertBefore(this.element, node.nextSibling);
+      } else {
+        node.parentNode.appendChild(this.element);
+      }
+    }
+  }, {
+    key: "appendTo",
+    value: function appendTo(container) {
+      container.appendChild(this.element);
+    }
+  }, {
+    key: "isVisible",
+    value: function isVisible() {
+      return this.element.style.display !== 'none';
     }
   }]);
 }();
